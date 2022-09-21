@@ -35,7 +35,7 @@ if __name__ == '__main__':
     staySignedIn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, "idSIButton9")))
     ActionChains(driver).click(staySignedIn).perform()
     searchBar = WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.ID, "sb_form_q")))
-    searchBar.send_keys("Howard Stern")
+    searchBar.send_keys("Jar Jar Binks")
     searchBar.send_keys(Keys.RETURN)
 
 
