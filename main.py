@@ -30,7 +30,9 @@ if __name__ == '__main__':
     passwordInput = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.NAME, "passwd")))
     passw = driver.find_element(By.NAME, "passwd")
     # need to get password from file
-    passwordInput.send_keys('Sek006528')
+    pFile = open("password/pword.txt")
+    secret = pFile.read()
+    passwordInput.send_keys(secret)
     signIn = driver.find_element(By.ID, "idSIButton9")
     ActionChains(driver).click(signIn).perform()
     time.sleep(2)
