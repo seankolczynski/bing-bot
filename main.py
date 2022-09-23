@@ -20,7 +20,7 @@ if __name__ == '__main__':
     driver = webdriver.Chrome()
     driver.get('http://www.bing.com/')
 
-    time.sleep(5)  # Let the user actually see something!
+    time.sleep(7)  # Let the user actually see something!
     signIn = driver.find_element(By.ID, "id_l")
     ActionChains(driver).click(signIn).perform()
     emailInput = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "i0116")))
@@ -39,7 +39,10 @@ if __name__ == '__main__':
     staySignedIn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, "idSIButton9")))
     ActionChains(driver).click(staySignedIn).perform()
     searchBar = WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.ID, "sb_form_q")))
-    searchBar.send_keys(searchGenerator(1))
+    options = 1
+    with open("Genie.txt") as genie:
+        options = len(genie.readlines())
+    searchBar.send_keys(searchGenerator(options))
     searchBar.send_keys(Keys.RETURN)
 
 
