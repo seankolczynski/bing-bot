@@ -17,7 +17,7 @@ def searchMonkey(driver):
     with open("Genie.txt") as genie:
         options = len(genie.readlines())
     while searchCount < searchGoal:
-        currentUrl = driver.current_url()
+        currentUrl = driver.current_url
         searchBar.send_keys(searchGenerator(options))
         searchBar.send_keys(Keys.RETURN)
         time.sleep(5)
