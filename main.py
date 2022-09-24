@@ -1,4 +1,4 @@
-from searchMonkey import searchMonkey
+from searchGenerator import searchGenerator, searchMonkey
 from signIn import signIn
 
 def print_hi(name):
@@ -8,8 +8,6 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    searchGenerator()
     driver = signIn()
     searchMonkey(driver)
-
-
-    # ActionChains(driver).click(emailInput).perform()
