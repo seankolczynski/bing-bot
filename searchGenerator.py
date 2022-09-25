@@ -13,9 +13,13 @@ def searchGenerator():
     searchCount = 0
     MaxLine = len(open("TheList.txt").readlines())
     with open("TodaysSearches.txt", "w") as shortlist:
+        dart = random.randint(0, MaxLine - 1)
+        straws = list()
         while searchCount <= dailySearchLimit:
-            dart = random.randint(0, MaxLine - 1)
+            while dart in straws:
+                dart = random.randint(0, MaxLine - 1)
             searchTerm = linecache.getline("TheList.txt", dart)
+            straws.append(dart)
             shortlist.write(searchTerm)
             searchCount = searchCount + 1
 
