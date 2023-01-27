@@ -14,15 +14,15 @@ def searchGenerator():
     dailySearchLimit = 30
     searchCount = 0
     MaxLine = len(open("TheMasterList.txt").readlines())
-    with open("ThawList.txt") as file:
+    with open("lists/ThawList.txt") as file:
         lines = file.readlines()
         lines = [line.rstrip() for line in lines]
     print(lines)
-    thawList = open("ThawList.txt", "w")
+    thawList = open("lists/ThawList.txt", "w")
 
     # MaxLine = 60
 
-    with open("TodaysSearches.txt", "w") as shortlist:
+    with open("lists/TodaysSearches.txt", "w") as shortlist:
         dart = random.randint(0, MaxLine - 1)
         straws = list()
         while searchCount <= dailySearchLimit:
@@ -40,7 +40,7 @@ def searchGenerator():
 
 def searchMonkey(driver):
     searchBar = WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.ID, "sb_form_q")))
-    with open("TodaysSearches.txt") as shortlist:
+    with open("lists/TodaysSearches.txt") as shortlist:
         searchTerms = shortlist.readlines()
         for term in searchTerms:
             print(searchBar)
