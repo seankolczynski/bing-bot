@@ -1,4 +1,5 @@
 import linecache
+import os
 import random
 import time
 
@@ -11,6 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 def searchGenerator():
+    print(os.getcwd())
     dailySearchLimit = 30
     searchCount = 0
     MaxLine = len(open("TheMasterList.txt").readlines())
