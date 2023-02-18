@@ -1,6 +1,6 @@
 from searchGenerator import searchGenerator, searchMonkey, searchMobile
 from signIn import signIn
-from selenium import webdriver
+from setup import setup
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -9,6 +9,7 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    setup()
     searchGenerator()
     driver = signIn()
     driver = searchMonkey(driver)
